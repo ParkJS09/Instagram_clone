@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class  AccountPage extends StatefulWidget {
   @override
@@ -6,6 +8,7 @@ class  AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +21,10 @@ class _AccountPageState extends State<AccountPage> {
      return AppBar(
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.exit_to_app), onPressed: () {},
+            icon: Icon(Icons.exit_to_app), onPressed: () {
+              FirebaseAuth.instance.signOut();
+              _googleSignIn.signOut();
+          },
           )
         ],
      );

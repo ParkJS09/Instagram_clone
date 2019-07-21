@@ -10,7 +10,8 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body: _buildBody(),
+      appBar: AppBar(),
+      body: _buildBody(),
       floatingActionButton: FloatingActionButton(
 //        화면전환!
        onPressed: (){
