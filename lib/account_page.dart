@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class  AccountPage extends StatefulWidget {
+  final FirebaseUser user;
+  AccountPage(this.user);
   @override
   _AccountPageState createState() => _AccountPageState();
 }
@@ -76,7 +78,7 @@ class _AccountPageState extends State<AccountPage> {
                 ],
               ),
               Padding(padding: EdgeInsets.all(4.0)),
-              Text('이름',
+              Text(widget.user.displayName,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),)
             ],
           ),
